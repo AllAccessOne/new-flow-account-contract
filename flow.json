@@ -1,0 +1,64 @@
+{
+	"contracts": {
+		"FUSD": {
+			"source": "./contracts/tokens/FUSD.cdc",
+			"aliases": {
+				"testnet": "e223d8a629e49c68"
+			}
+		},
+		"Factory": "./contracts/Factory.cdc",
+		"FiatToken": {
+			"source": "./contracts/tokens/FiatToken.cdc",
+			"aliases": {
+				"testnet": "a983fecbed621163"
+			}
+		},
+		"FungibleToken": {
+			"source": "./contracts/interfaces/FungibleToken.cdc",
+			"aliases": {
+				"emulator": "ee82856bf20e2aa6",
+				"testnet": "9a0766d93b6608b7"
+			}
+		},
+		"OnChainMultiSig": {
+			"source": "./contracts/libraries/OnChainMultiSig.cdc",
+			"aliases": {
+				"testnet": "0983fecbed621163"
+			}
+		},
+		"Token": "./contracts/libraries/Token.cdc"
+	},
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	},
+	"accounts": {
+		"emulator-account": {
+			"address": "f8d6e0586b0a20c7",
+			"key": "6d12eebfef9866c9b6fa92b97c6e705c26a1785b1e7944da701fc545a51d4673"
+		},
+		"testnet-account": {
+			"address": "7e014e862b346f8e",
+			"key": {
+				"type": "file",
+				"location": "testnet-account.pkey"
+			}
+		}
+	},
+	"deployments": {
+		"emulator": {
+			"emulator-account": [
+				"Factory",
+				"FiatToken",
+				"FUSD",
+				"FungibleToken",
+				"Token",
+				"OnChainMultiSig"
+			]
+		},
+		"testnet": {
+			"testnet-account": ["Factory", "Token"]
+		}
+	}
+}
